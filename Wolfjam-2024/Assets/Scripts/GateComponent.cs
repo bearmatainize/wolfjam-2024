@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public enum ComponentState { Stashed, Grabbed, Placed };
+public enum ComponentState { Stashed, Grabbed, Placed, Locked };
 
 public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
@@ -20,20 +20,20 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private InputAction point;
 
-    private ComponentState currentState;
+    [SerializeField] private ComponentState currentState;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
-        currentState = ComponentState.Stashed;
         //Debug.Log(transform.position);
     }
 
     void Awake()
     {
         controls = new Controls();
+        currentState = ComponentState.Stashed;
     }
 
     void OnEnable()
@@ -50,6 +50,7 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(currentState.ToString());
         if (currentState == ComponentState.Grabbed)
         {
             transform.position = gameManager.Cam.ScreenToWorldPoint(point.ReadValue<Vector2>());
@@ -71,13 +72,19 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerDown(PointerEventData eventData)
     {
         //Debug.Log("Pointer Down");
-        currentState = ComponentState.Grabbed;
+        if (currentState != ComponentState.Locked)
+        {
+            currentState = ComponentState.Grabbed;
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("Pointer Up");
-        CheckIfOnTile();
+        if (currentState != ComponentState.Locked)
+        {
+            Debug.Log("Pointer Up");
+            CheckIfOnTile();
+        }
     }
 
     private void CheckIfOnTile()
@@ -112,8 +119,13 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             currentState = ComponentState.Placed;
             transform.position = closestTile.transform.position;
             transform.position = new Vector3(transform.position.x, transform.position.y, -1.0f);
-            closestTile.AttachComponent(this);
+            closestTile.AttachComponent(this, false);
         }
+    }
+
+    public void LockComponent()
+    {
+        currentState = ComponentState.Locked;
     }
 
     public void SetOriginalPosition()
