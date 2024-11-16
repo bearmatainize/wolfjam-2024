@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -11,6 +12,9 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] private SpriteRenderer sprite;
 
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GridManager gridManager;
+
+    private Vector3 originalPosition;
 
     private Controls controls;
 
@@ -23,7 +27,7 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentState = ComponentState.Stashed;
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
     }
 
     void Awake()
@@ -54,7 +58,7 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Hovering");
+        //Debug.Log("Hovering");
         //sprite.color = highlightColor;
     }
 
@@ -65,13 +69,49 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Pointer Down");
+        //Debug.Log("Pointer Down");
+        originalPosition = transform.position;
         currentState = ComponentState.Grabbed;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         Debug.Log("Pointer Up");
-        currentState = ComponentState.Stashed;
+        CheckIfOnTile();
+    }
+
+    private void CheckIfOnTile()
+    {
+        List<Tile> tiles = gridManager.AllTiles;
+        float shortestDist = Mathf.Infinity;
+        Tile closestTile = null;
+        foreach (Tile tile in tiles)
+        {
+            if (!tile.HasAttachedComponent())
+            {
+                float dist = Vector3.SqrMagnitude(transform.position - tile.transform.position);
+                if (dist < shortestDist)
+                {
+                    closestTile = tile;
+                    shortestDist = dist;
+                }
+            }
+        }
+
+        Debug.Log("Shortest Dist: " + shortestDist);
+
+        if (shortestDist > 1.5f)
+        {
+            currentState = ComponentState.Stashed;
+            transform.position = originalPosition;
+
+        }
+        else
+        {
+            currentState = ComponentState.Placed;
+            transform.position = closestTile.transform.position;
+            transform.position = new Vector3(transform.position.x, transform.position.y, -1.0f);
+            closestTile.AttachComponent(this);
+        }
     }
 }

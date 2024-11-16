@@ -8,6 +8,8 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private GameObject HoverObject;
 
+    private GateComponent attachedComponent;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,5 +46,15 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public void OnPointerDown(PointerEventData eventData)
     {
 
+    }
+
+    public void AttachComponent(GateComponent component)
+    {
+        attachedComponent = component;
+    }
+
+    public bool HasAttachedComponent()
+    {
+        return attachedComponent != null;
     }
 }
