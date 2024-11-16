@@ -15,7 +15,7 @@ public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.localPosition = new Vector3(0f, 0f, -1.0f);
+        transform.localPosition = new Vector3(0f, 0f, -5.0f);
     }
 
     // Update is called once per frame
