@@ -48,6 +48,7 @@ MonoBehaviour:
   inputNode: {fileID: 0}
   outputNode: {fileID: 0}
   internalState: 0
+  lineRenderer: {fileID: 8776675146387675397}
 --- !u!120 &8776675146387675397
 LineRenderer:
   serializedVersion: 2
@@ -57,7 +58,7 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679676545360207653}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -72,7 +73,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,7 +105,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.1046505
         inSlope: 0
         outSlope: 0
         tangentMode: 0

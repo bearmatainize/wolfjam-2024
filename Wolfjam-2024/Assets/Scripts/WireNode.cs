@@ -10,6 +10,7 @@ public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] public WireNodeState currentState;
     [SerializeField] public GameManager gameManager;
     [SerializeField] public Wire wirePrefab;
+
     public bool internalState;
     public NodeType io;
     public GateComponent parentComponent;
@@ -46,21 +47,26 @@ public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 if (attached.io == NodeType.In)
                 {
                     gameManager.currentWire.outputNode = this;
-                } else {
+                }
+                else
+                {
                     gameManager.currentWire.inputNode = this;
-                }     
+                }
             }
-            lineRenderer.positionCount = 2;
-            lineRenderer.SetPosition(0, gameManager.currentWire.inputNode.transform.position);
-            lineRenderer.SetPosition(1, gameManager.currentWire.outputNode.transform.position);
+            gameManager.currentWire.RenderLine();
             gameManager.hasWire = false;
-        } else {
+            gameManager.currentWire = null;
+        }
+        else
+        {
             gameManager.currentWire = Instantiate(wirePrefab);
             if (this.io == NodeType.In)
             {
-                gameManager.currentWire.inputNode = this;
-            } else {
-                gameManager.currentWire.outputNode = this;
+                gameManager.currentWire.setNode(this);
+            }
+            else
+            {
+                gameManager.currentWire.setNode(this);
             }
             gameManager.hasWire = true;
         }
@@ -68,11 +74,11 @@ public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        
+
     }
 }
