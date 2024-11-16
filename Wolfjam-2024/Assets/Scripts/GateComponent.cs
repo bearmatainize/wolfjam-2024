@@ -4,11 +4,13 @@ using UnityEngine.InputSystem;
 
 public enum ComponentState { Stashed, Grabbed, Placed };
 
-public class Component : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
 
     [SerializeField] private Color highlightColor;
     [SerializeField] private SpriteRenderer sprite;
+
+    [SerializeField] private GameManager gameManager;
 
     private Controls controls;
 
@@ -19,7 +21,9 @@ public class Component : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentState = ComponentState.Stashed;
+        Debug.Log(transform.position);
     }
 
     void Awake()
@@ -43,7 +47,8 @@ public class Component : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (currentState == ComponentState.Grabbed)
         {
-            transform.position = point.ReadValue<Vector2>();
+            transform.position = gameManager.Cam.ScreenToWorldPoint(point.ReadValue<Vector2>());
+            transform.position = new Vector3(transform.position.x, transform.position.y, -1.0f);
         }
     }
 
@@ -60,6 +65,13 @@ public class Component : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        Debug.Log("Pointer Down");
+        currentState = ComponentState.Grabbed;
+    }
 
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        Debug.Log("Pointer Up");
+        currentState = ComponentState.Stashed;
     }
 }
