@@ -16,11 +16,16 @@ public class Wire : MonoBehaviour
 
     private MeshCollider meshCollider;
 
+    public enum WireState { On, Off };
+
+    [SerializeField] public WireState currentState;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         this.inputNode = null;
         this.outputNode = null;
+        currentState = WireState.Off;
 
         controls = new Controls();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -95,6 +100,19 @@ public class Wire : MonoBehaviour
 
         }
 
+        if(this.outputNode.currentState == WireNodeState.On)
+        {
+            currentState = WireState.On;
+            this.lineRenderer.startColor = Color.green;
+            this.lineRenderer.endColor = Color.green;
+        }
+        else
+        {
+            currentState = WireState.Off;
+            this.lineRenderer.startColor = Color.red;
+            this.lineRenderer.endColor = Color.red;
+        }
+
     }
 
     public void setNode(WireNode node)
@@ -139,18 +157,22 @@ public class Wire : MonoBehaviour
 
         else if (this.inputNode != null && this.outputNode != null)
         {
-            if (Physics.Raycast(new Vector3(mousePos.x, mousePos.y, -30.0f), Vector3.forward, Mathf.Infinity))
+            if (Physics.Raycast(new Vector3(mousePos.x, mousePos.y, -30.0f), Vector3.forward, out RaycastHit hit, Mathf.Infinity))
             {
-                this.inputNode.RemoveWire();
-                this.inputNode = null;
+                Wire hitWire = hit.collider.GetComponent<Wire>();
+                if (hitWire != null && hitWire == this)
+                {
+                    this.inputNode.RemoveWire();
+                    this.inputNode = null;
 
-                this.outputNode.RemoveWire();
-                this.outputNode = null;
+                    this.outputNode.RemoveWire();
+                    this.outputNode = null;
 
-                gameManager.hasWire = false;
-                gameManager.currentWire = null;
+                    gameManager.hasWire = false;
+                    gameManager.currentWire = null;
 
-                Destroy(this.gameObject);
+                    Destroy(this.gameObject);
+                }
             }
         }
     }

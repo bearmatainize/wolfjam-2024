@@ -62,7 +62,7 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("In Gate Component");
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
