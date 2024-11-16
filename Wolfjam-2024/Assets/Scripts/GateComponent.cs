@@ -115,6 +115,10 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             currentState = ComponentState.Stashed;
             transform.position = originalPosition;
+            if (currentTile != null)
+            {
+                currentTile.DetachComponent();
+            }
             //Debug.Log(transform.position);
 
         }
