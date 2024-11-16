@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3936932727669854331}
-  - component: {fileID: 3121840400698690378}
+  - component: {fileID: 6474583305052685873}
   m_Layer: 0
   m_Name: BugSpawner
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3121840400698690378
+--- !u!114 &6474583305052685873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,6 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugPrefab: {fileID: 6373394251127437206, guid: 52e9909eb161c2c4cbf01623ce557645, type: 3}
   spawnInterval: 10
-  spawnAreaMin: {x: 0, y: 0}
-  spawnAreaMax: {x: 5, y: 5}
-  growthDuration: 1
+  growthDuration: 10
+  spawnOffset: 4

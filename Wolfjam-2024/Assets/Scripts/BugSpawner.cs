@@ -9,7 +9,7 @@ public class BugSpawner : MonoBehaviour
     private Vector3 screenBottomLeft;
     private Vector3 screenTopRight;
     private Vector3 screenCenter;
-    public float spawnOffset = 5f; // Distance outside the screen bounds to spawn bugs
+    public float spawnOffset = 4f; // Distance outside the screen bounds to spawn bugs
 
 
     void Start()
