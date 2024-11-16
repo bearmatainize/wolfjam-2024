@@ -387,6 +387,7 @@ MonoBehaviour:
   gridManager: {fileID: 1089550007}
   trayPrefab: {fileID: 1138872484411626890, guid: 35443906bdcb57a499d07aed15086a6f, type: 3}
   startTilePrefab: {fileID: 4078708692458074631, guid: 4f5db9a0252ebb0469adc2f2be1c3854, type: 3}
+  endTilePrefab: {fileID: -7974617442394243433, guid: 62ce863929adc354b8f117f5fc4415fb, type: 3}
 --- !u!1 &2093159132
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Tray trayPrefab;
 
     [SerializeField] private StartTile startTilePrefab;
-    //[SerializeField] private EndTile endTilePrefab;
+    [SerializeField] private EndTile endTilePrefab;
 
     public Camera Cam
     { get { return cam; } }
@@ -40,9 +40,10 @@ public class GameManager : MonoBehaviour
         newStartOneTile.transform.position = new Vector3(allTiles[2].transform.position.x, allTiles[2].transform.position.y, -2.0f);
         newStartOneTileTwo.transform.position = new Vector3(allTiles[4].transform.position.x, allTiles[4].transform.position.y, -2.0f);
 
-        //var newEndTile = Instantiate(endTilePrefab);
+        var newEndTile = Instantiate(endTilePrefab);
 
-        //allTiles[allTiles]
+        allTiles[allTiles.Count - 4].AttachComponent(newEndTile.GateComponent, true);
+        newEndTile.transform.position = new Vector3(allTiles[allTiles.Count - 4].transform.position.x, allTiles[allTiles.Count - 4].transform.position.y, -2.0f);
 
     }
 

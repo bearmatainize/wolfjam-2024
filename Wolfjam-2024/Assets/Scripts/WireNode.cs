@@ -7,7 +7,7 @@ public enum NodeType { In, Out };
 public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
 
-    public WireNodeState currentState;
+    [SerializeField] public WireNodeState currentState;
     public bool internalState;
     public NodeType io;
     public GateComponent parentComponent;
