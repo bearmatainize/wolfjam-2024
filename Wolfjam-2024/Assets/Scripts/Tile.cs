@@ -58,6 +58,11 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         }
     }
 
+    public void DetachComponent()
+    {
+        attachedComponent = null;
+    }
+
     public bool HasAttachedComponent()
     {
         return attachedComponent != null;

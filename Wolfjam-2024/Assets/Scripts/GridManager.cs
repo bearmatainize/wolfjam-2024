@@ -6,6 +6,9 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private int width, height;
 
+    public int Width { get { return width; } }
+    public int Height { get { return height; } }
+
     [SerializeField] Tile tilePrefab;
 
     [SerializeField] Tray trayPrefab;
