@@ -95,6 +95,10 @@ public class Wire : MonoBehaviour
 
         }
 
+        if (this.inputNode != null && this.outputNode != null){
+            this.outputNode.internalState = this.inputNode.internalState;
+        }
+
     }
 
     public void setNode(WireNode node)
