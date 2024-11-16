@@ -3,17 +3,45 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
 
-    [SerializeField] private width, height;
+    [SerializeField] private int width, height;
+
+    [SerializeField] Tile tilePrefab;
+
+    [SerializeField] private Transform cam;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        GenerateGrid();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    void GenerateGrid()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                var spawnedTile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
+                spawnedTile.name = $"Tile Loc {x}, {y}";
+
+                if ((x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0))
+                {
+                    spawnedTile.InitializeColor(true);
+                }
+                else
+                {
+                    spawnedTile.InitializeColor(false);
+                }
+
+            }
+        }
+
+        cam.transform.position = new Vector3(((float)width / 1.5f) - 0.5f, ((float)height / 2) - 0.5f, -10f);
     }
 }
