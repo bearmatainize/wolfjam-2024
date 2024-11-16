@@ -43,6 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 172512298400838598}
   - component: {fileID: 6145690780813741170}
+  - component: {fileID: 8205919310912831185}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -110,7 +111,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 0.1, y: 0.1}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.07
+--- !u!114 &8205919310912831185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347941277191614766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc04f94f998a19744abe33bc9eff1e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  internalState: 0
+  io: 0
+  parentComponent: {fileID: 0}
 --- !u!1001 &1482385241408484242
 PrefabInstance:
   m_ObjectHideFlags: 0
