@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4516002912047255463}
   - component: {fileID: 7687236155762056126}
   - component: {fileID: 2654930938300233629}
+  - component: {fileID: 7256709931667760149}
   m_Layer: 0
   m_Name: Input1
   m_TagString: Untagged
@@ -95,6 +96,20 @@ MonoBehaviour:
   internalState: 0
   io: 0
   parentComponent: {fileID: 0}
+--- !u!114 &7256709931667760149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4116926014087023127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71714398d6505747bb955bd7975b870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickCursor: {fileID: 2800000, guid: 87d2bff6b8b1f6d45a8f25fdaf4163f8, type: 3}
+  hotspot: {x: 11, y: 1}
 --- !u!1 &5641709343098652504
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +121,7 @@ GameObject:
   - component: {fileID: 4013239458511255589}
   - component: {fileID: 6268119975163369320}
   - component: {fileID: 5037847598174377513}
+  - component: {fileID: 4893279665330101286}
   m_Layer: 0
   m_Name: Input2
   m_TagString: Untagged
@@ -190,6 +206,20 @@ MonoBehaviour:
   internalState: 0
   io: 0
   parentComponent: {fileID: 0}
+--- !u!114 &4893279665330101286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641709343098652504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71714398d6505747bb955bd7975b870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickCursor: {fileID: 2800000, guid: 87d2bff6b8b1f6d45a8f25fdaf4163f8, type: 3}
+  hotspot: {x: 11, y: 1}
 --- !u!1 &7605973519034015834
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +231,7 @@ GameObject:
   - component: {fileID: 4426800416424290452}
   - component: {fileID: 5749689564649174945}
   - component: {fileID: 6652006337227842851}
+  - component: {fileID: 4775172598463294972}
   m_Layer: 0
   m_Name: Output
   m_TagString: Untagged
@@ -285,6 +316,20 @@ MonoBehaviour:
   internalState: 0
   io: 1
   parentComponent: {fileID: 0}
+--- !u!114 &4775172598463294972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605973519034015834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71714398d6505747bb955bd7975b870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickCursor: {fileID: 2800000, guid: 87d2bff6b8b1f6d45a8f25fdaf4163f8, type: 3}
+  hotspot: {x: 11, y: 1}
 --- !u!1 &8037025578752712291
 GameObject:
   m_ObjectHideFlags: 0
