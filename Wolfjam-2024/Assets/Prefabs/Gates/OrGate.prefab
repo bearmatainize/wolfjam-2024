@@ -93,9 +93,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  gameManager: {fileID: 0}
+  wirePrefab: {fileID: 9028730372908811943, guid: 21f91f9717f1fd64d864c2adf49bb409, type: 3}
   internalState: 0
   io: 0
   parentComponent: {fileID: 0}
+  lineRenderer: {fileID: 0}
 --- !u!114 &4148815151284475479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,9 +254,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  gameManager: {fileID: 0}
+  wirePrefab: {fileID: 9028730372908811943, guid: 21f91f9717f1fd64d864c2adf49bb409, type: 3}
   internalState: 0
   io: 0
   parentComponent: {fileID: 0}
+  lineRenderer: {fileID: 0}
 --- !u!114 &2360032589524624164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,9 +367,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  gameManager: {fileID: 0}
+  wirePrefab: {fileID: 9028730372908811943, guid: 21f91f9717f1fd64d864c2adf49bb409, type: 3}
   internalState: 0
   io: 1
   parentComponent: {fileID: 0}
+  lineRenderer: {fileID: 0}
 --- !u!114 &8730436103646375805
 MonoBehaviour:
   m_ObjectHideFlags: 0

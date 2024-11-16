@@ -8,14 +8,18 @@ public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     [SerializeField] public WireNodeState currentState;
+    [SerializeField] public GameManager gameManager;
+    [SerializeField] public Wire wirePrefab;
     public bool internalState;
     public NodeType io;
     public GateComponent parentComponent;
+    public LineRenderer lineRenderer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         transform.localPosition = new Vector3(0f, 0f, -5.0f);
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -33,16 +37,42 @@ public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("CLICK!");
+        if (gameManager.hasWire)
+        {
+            WireNode attached = (gameManager.currentWire.inputNode == null) ? gameManager.currentWire.outputNode : gameManager.currentWire.inputNode;
+
+            if (attached.io != this.io)
+            {
+                if (attached.io == NodeType.In)
+                {
+                    gameManager.currentWire.outputNode = this;
+                } else {
+                    gameManager.currentWire.inputNode = this;
+                }     
+            }
+            lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(0, gameManager.currentWire.inputNode.transform.position);
+            lineRenderer.SetPosition(1, gameManager.currentWire.outputNode.transform.position);
+            gameManager.hasWire = false;
+        } else {
+            gameManager.currentWire = Instantiate(wirePrefab);
+            if (this.io == NodeType.In)
+            {
+                gameManager.currentWire.inputNode = this;
+            } else {
+                gameManager.currentWire.outputNode = this;
+            }
+            gameManager.hasWire = true;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("ON NODE");
+        
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("OFF NODE");
+        
     }
 }

@@ -16,6 +16,17 @@ public class Wire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.outputNode.internalState = this.inputNode.internalState;
+        if (this.inputNode != null && this.outputNode != null){
+            this.outputNode.internalState = this.inputNode.internalState;
+        }
+        
+    }
+
+    public void setNode(WireNode node){
+        if (node.io == NodeType.In){
+            inputNode = node;
+        } else {
+            outputNode = node;
+        }
     }
 }
