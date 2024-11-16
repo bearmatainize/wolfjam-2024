@@ -5,7 +5,7 @@ public class HoverCursorClick : MonoBehaviour, IPointerEnterHandler, IPointerExi
 {
 
     public Texture2D clickCursor;  // Drag your custom cursor texture here
-    public Vector2 hotspot = Vector2.zero; // Sets the cursor's "click point"
+    public Vector2 hotspot = new Vector2(11.0f, 1.0f); // Sets the cursor's "click point"
     private Texture2D defaultCursor;
     
     void Start()
