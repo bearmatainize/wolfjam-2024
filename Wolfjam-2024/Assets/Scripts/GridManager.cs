@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
@@ -9,9 +10,20 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private Transform cam;
 
+    private List<Tile> allTiles;
+
+    public List<Tile> AllTiles
+    {
+        get
+        {
+            return allTiles;
+        }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        allTiles = new List<Tile>();
         GenerateGrid();
     }
 
@@ -38,6 +50,8 @@ public class GridManager : MonoBehaviour
                 {
                     spawnedTile.InitializeColor(false);
                 }
+
+                allTiles.Add(spawnedTile);
 
             }
         }
