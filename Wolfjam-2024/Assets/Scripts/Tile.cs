@@ -48,9 +48,14 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     }
 
-    public void AttachComponent(GateComponent component)
+    public void AttachComponent(GateComponent component, bool locked)
     {
         attachedComponent = component;
+
+        if (locked)
+        {
+            component.LockComponent();
+        }
     }
 
     public bool HasAttachedComponent()

@@ -386,6 +386,8 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   gridManager: {fileID: 1089550007}
   trayPrefab: {fileID: 1138872484411626890, guid: 35443906bdcb57a499d07aed15086a6f, type: 3}
+  startZeroTilePrefab: {fileID: 3377925909290432599, guid: f06523327dae8a249a3691137690f772, type: 3}
+  startOneTilePrefab: {fileID: 7191005309573208734, guid: 243cead57c04356439bf4bef62557dff, type: 3}
 --- !u!1 &2093159132
 GameObject:
   m_ObjectHideFlags: 0
