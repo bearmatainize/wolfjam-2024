@@ -31,7 +31,6 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
-        //Debug.Log(transform.position);
     }
 
     void Awake()
@@ -54,7 +53,6 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(currentState.ToString());
         if (currentState == ComponentState.Grabbed)
         {
             transform.position = gameManager.Cam.ScreenToWorldPoint(point.ReadValue<Vector2>());
@@ -64,8 +62,6 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //Debug.Log("Hovering");
-        //sprite.color = highlightColor;
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -75,7 +71,6 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Pointer Down");
         if (currentState != ComponentState.Locked)
         {
             currentState = ComponentState.Grabbed;
@@ -86,7 +81,6 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (currentState != ComponentState.Locked)
         {
-            // Debug.Log("Pointer Up");
             CheckIfOnTile();
         }
     }
@@ -109,8 +103,6 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             }
         }
 
-        //Debug.Log("Shortest Dist: " + shortestDist);
-
         if (shortestDist > 1.5f)
         {
             currentState = ComponentState.Stashed;
@@ -119,7 +111,6 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             {
                 currentTile.DetachComponent();
             }
-            //Debug.Log(transform.position);
 
         }
         else

@@ -35,12 +35,10 @@ public class StartTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Entered Start Tile");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Exited Start Tile");
     }
 
     public void OnPointerDown(PointerEventData eventData)
