@@ -18,7 +18,8 @@ public class StartTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         output1 = GetComponentsInChildren<WireNode>()[0];
         output1.io = NodeType.Out;
-        output1.currentState = WireNodeState.On;
+        output1.currentState = WireNodeState.Off;
+        sprite.sprite = ZeroImage;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
