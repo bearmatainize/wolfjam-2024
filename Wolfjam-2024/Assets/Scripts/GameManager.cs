@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         var newTray = Instantiate(trayPrefab);
         newTray.transform.position = new Vector3(cam.transform.position.x - 2.0f, cam.transform.position.y - 4.5f, 0.0f);
 
-        string[] gates = new string[] { "or", "or", "or" };
+        string[] gates = new string[] { "or", "not", "xor", "and", "nor", "nand", "xnor" };
         newTray.AddGateComponents(gates);
 
         List<Tile> allTiles = gridManager.AllTiles;

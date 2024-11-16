@@ -35,10 +35,48 @@ public class Tray : MonoBehaviour
         {
             switch (types[i])
             {
+                case "not":
+                    var notGateComponent = Instantiate(notGatePrefab);
+                    notGateComponent.transform.position = new Vector3(transform.position.x - 3.0f + i, transform.position.y, -1.0f);
+                    notGateComponent.GetComponentsInChildren<GateComponent>()[0].transform.localPosition = new Vector3(0.0f, 0.0f, -2.0f);
+                    notGateComponent.GetComponentsInChildren<GateComponent>()[0].SetOriginalPosition();
+                    break;
                 case "or":
-                    var newGateComponent = Instantiate(orGatePrefab);
-                    newGateComponent.transform.position = new Vector3(transform.position.x - 3.0f + i, transform.position.y, -1.0f);
-                    newGateComponent.GetComponentsInChildren<GateComponent>()[0].SetOriginalPosition();
+                    var orGateComponent = Instantiate(orGatePrefab);
+                    orGateComponent.transform.position = new Vector3(transform.position.x - 3.0f + i, transform.position.y, -1.0f);
+                    orGateComponent.GetComponentsInChildren<GateComponent>()[0].transform.localPosition = new Vector3(0.0f, 0.0f, -2.0f);
+                    orGateComponent.GetComponentsInChildren<GateComponent>()[0].SetOriginalPosition();
+                    break;
+                case "nor":
+                    var norGateComponent = Instantiate(norGatePrefab);
+                    norGateComponent.transform.position = new Vector3(transform.position.x - 3.0f + i, transform.position.y, -1.0f);
+                    norGateComponent.GetComponentsInChildren<GateComponent>()[0].transform.localPosition = new Vector3(0.0f, 0.0f, -2.0f);
+                    norGateComponent.GetComponentsInChildren<GateComponent>()[0].SetOriginalPosition();
+                    break;
+                case "and":
+                    var andGateComponent = Instantiate(andGatePrefab);
+                    andGateComponent.transform.position = new Vector3(transform.position.x - 3.0f + i, transform.position.y, -1.0f);
+                    andGateComponent.GetComponentsInChildren<GateComponent>()[0].transform.localPosition = new Vector3(0.0f, 0.0f, -2.0f);
+                    andGateComponent.GetComponentsInChildren<GateComponent>()[0].SetOriginalPosition();
+                    break;
+                case "nand":
+                    var nandGateComponent = Instantiate(nandGatePrefab);
+                    nandGateComponent.transform.position = new Vector3(transform.position.x - 3.0f + i, transform.position.y, -1.0f);
+                    nandGateComponent.GetComponentsInChildren<GateComponent>()[0].transform.localPosition = new Vector3(0.0f, 0.0f, -2.0f);
+                    nandGateComponent.GetComponentsInChildren<GateComponent>()[0].SetOriginalPosition();
+                    break;
+                case "xor":
+                    var xorGateComponent = Instantiate(xorGatePrefab);
+                    xorGateComponent.transform.position = new Vector3(transform.position.x - 3.0f + i, transform.position.y, -1.0f);
+                    xorGateComponent.GetComponentsInChildren<GateComponent>()[0].transform.localPosition = new Vector3(0.0f, 0.0f, -2.0f);
+                    xorGateComponent.GetComponentsInChildren<GateComponent>()[0].SetOriginalPosition();
+                    break;
+                case "default":
+                case "xnor":
+                    var xnorGateComponent = Instantiate(xnorGatePrefab);
+                    xnorGateComponent.transform.position = new Vector3(transform.position.x - 3.0f + i, transform.position.y, -1.0f);
+                    xnorGateComponent.GetComponentsInChildren<GateComponent>()[0].transform.localPosition = new Vector3(0.0f, 0.0f, -2.0f);
+                    xnorGateComponent.GetComponentsInChildren<GateComponent>()[0].SetOriginalPosition();
                     break;
             }
         }

@@ -62,6 +62,7 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("In Gate Component");
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -94,7 +95,7 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             if (!tile.HasAttachedComponent())
             {
-                float dist = Vector3.SqrMagnitude(transform.position - tile.transform.position);
+                float dist = Vector2.SqrMagnitude(transform.position - tile.transform.position);
                 if (dist < shortestDist)
                 {
                     closestTile = tile;
@@ -106,7 +107,8 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (shortestDist > 1.5f)
         {
             currentState = ComponentState.Stashed;
-            transform.position = originalPosition;
+            transform.parent.gameObject.transform.position = new Vector3(originalPosition.x, originalPosition.y, -2.0f);
+            transform.localPosition = new Vector3(0, 0, -1.0f);
             if (currentTile != null)
             {
                 currentTile.DetachComponent();
@@ -116,8 +118,10 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         else
         {
             currentState = ComponentState.Placed;
-            transform.position = closestTile.transform.position;
-            transform.position = new Vector3(transform.position.x, transform.position.y, -1.0f);
+
+            transform.parent.gameObject.transform.position = closestTile.transform.position;
+            transform.parent.gameObject.transform.position = new Vector3(transform.parent.gameObject.transform.position.x, transform.parent.gameObject.transform.position.y, -2.0f);
+            transform.position = new Vector3(transform.parent.gameObject.transform.position.x, transform.parent.gameObject.transform.position.y, -1.0f);
             closestTile.AttachComponent(this, false);
             if (currentTile != null)
             {
