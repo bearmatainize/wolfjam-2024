@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.17664184, g: 0.2830189, b: 0.092114635, a: 1}
   offsetColor: {r: 0.19383849, g: 0.3018868, b: 0.10679958, a: 1}
-  highlightColor: {r: 0.60145247, g: 0.7169812, b: 0.51067996, a: 0}
-  renderer: {fileID: 8598199613625729150}
+  highlightColor: {r: 0.64987373, g: 0.8018868, b: 0.5333304, a: 1}
+  sprite: {fileID: 8598199613625729150}
 --- !u!61 &-6616631842480978824
 BoxCollider2D:
   m_ObjectHideFlags: 0

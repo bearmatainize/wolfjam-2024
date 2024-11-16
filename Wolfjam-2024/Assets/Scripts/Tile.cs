@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Tile : MonoBehaviour
+public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
 
     [SerializeField] private Color baseColor, offsetColor, highlightColor;
     private Color nonHighlightColor;
-    [SerializeField] private SpriteRenderer renderer;
+    [SerializeField] private SpriteRenderer sprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,17 +22,22 @@ public class Tile : MonoBehaviour
 
     public void InitializeColor(bool isOffset)
     {
-        renderer.color = isOffset ? offsetColor : baseColor;
-        nonHighlightColor = renderer.color;
+        sprite.color = isOffset ? offsetColor : baseColor;
+        nonHighlightColor = sprite.color;
     }
 
-    void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        renderer.color = Color.red;
+        sprite.color = highlightColor;
     }
 
-    void OnMouseExit()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        renderer.color = nonHighlightColor;
+        sprite.color = nonHighlightColor;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+
     }
 }
