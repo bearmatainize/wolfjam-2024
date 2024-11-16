@@ -9,11 +9,15 @@ public class WanderingBug : MonoBehaviour, IPointerDownHandler
     public float speed; // Current speed
     public float directionChangeInterval = 1f; // Time in seconds to change direction
     public float turnSpeed = 2f;      // How quickly the bug turns
+    public Sprite squashedBugSprite;           // Reference to squashed bug sprite
+    public float fadeDuration = 1.5f;          // Time it takes to fade out
 
     private Vector2 targetDirection; // Current target direction
     private Vector2 currentDirection; // Smoothed current direction
     private float directionChangeTimer;
     private Vector3 lastPosition;              // To calculate actual movement direction
+    private bool isSquashed = false;           // To prevent movement after being squashed
+    public GameObject squashedBugPrefab;     // Reference to the squashed bug prefab
 
     void Start()
     {
@@ -25,6 +29,8 @@ public class WanderingBug : MonoBehaviour, IPointerDownHandler
 
     void Update()
     {
+        if (isSquashed) return; // Stop movement if the bug is squashed
+
         speed = Mathf.Lerp(minSpeed, maxSpeed, Mathf.PingPong(Time.time, 1)); // Smoothly oscillate speed
         
         // Update direction periodically
@@ -58,8 +64,16 @@ public class WanderingBug : MonoBehaviour, IPointerDownHandler
 
      public void OnPointerDown(PointerEventData eventData)
     {
-        // Destroy the bug when clicked
-        Debug.Log("Bug clicked!"); // Add this to confirm the click is detected
+        if (isSquashed) return; // Prevent multiple clicks from triggering
+
+        // Stop movement
+        isSquashed = true;
+
+        // Instantiate the squashed bug prefab
+        GameObject squashedBug = Instantiate(squashedBugPrefab, transform.position, Quaternion.identity);
+        squashedBug.transform.SetParent(transform.parent); // Set the same parent as the original bug
+
+        // Destroy the original bug
         Destroy(gameObject);
     }
 
