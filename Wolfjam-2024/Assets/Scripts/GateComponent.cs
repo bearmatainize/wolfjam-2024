@@ -22,6 +22,8 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     [SerializeField] private ComponentState currentState;
 
+    public ComponentState CurrentState { get { return currentState; } }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
