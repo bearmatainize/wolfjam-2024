@@ -43,6 +43,6 @@ public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
-    
+        Debug.Log("OFF NODE");
     }
 }

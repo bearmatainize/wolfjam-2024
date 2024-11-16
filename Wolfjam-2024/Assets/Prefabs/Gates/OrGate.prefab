@@ -381,6 +381,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4574385957714388186, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.25015026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574385957714388186, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.25027663
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574385957714388186, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00026482344
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574385957714388186, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.00026486814
+      objectReference: {fileID: 0}
     - target: {fileID: 4726796710644450499, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
       propertyPath: m_Name
       value: Gate

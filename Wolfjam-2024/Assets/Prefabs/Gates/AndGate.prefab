@@ -385,6 +385,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -7009182661626685036, guid: d23413797f755124da41a833c3973f56, type: 3}
+    - target: {fileID: 4574385957714388186, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.24990392
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574385957714388186, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.25256306
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574385957714388186, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0004925877
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574385957714388186, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0014778003
+      objectReference: {fileID: 0}
     - target: {fileID: 4726796710644450499, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
       propertyPath: m_Name
       value: Gate
