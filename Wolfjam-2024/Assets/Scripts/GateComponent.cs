@@ -52,7 +52,7 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentState.ToString());
+        //Debug.Log(currentState.ToString());
         if (currentState == ComponentState.Grabbed)
         {
             transform.position = gameManager.Cam.ScreenToWorldPoint(point.ReadValue<Vector2>());
@@ -73,7 +73,7 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log("Pointer Down");
+        Debug.Log("Pointer Down");
         if (currentState != ComponentState.Locked)
         {
             currentState = ComponentState.Grabbed;
@@ -84,7 +84,7 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (currentState != ComponentState.Locked)
         {
-            Debug.Log("Pointer Up");
+            // Debug.Log("Pointer Up");
             CheckIfOnTile();
         }
     }
@@ -107,13 +107,13 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             }
         }
 
-        Debug.Log("Shortest Dist: " + shortestDist);
+        //Debug.Log("Shortest Dist: " + shortestDist);
 
         if (shortestDist > 1.5f)
         {
             currentState = ComponentState.Stashed;
             transform.position = originalPosition;
-            Debug.Log(transform.position);
+            //Debug.Log(transform.position);
 
         }
         else

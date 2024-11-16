@@ -21,6 +21,6 @@ public class StartOneTile : MonoBehaviour
 
     public void LockComponent()
     {
-        //gateComponent.LockComponent();
+        gateComponent.LockComponent();
     }
 }

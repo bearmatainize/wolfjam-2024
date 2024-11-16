@@ -30,9 +30,9 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Hovering");
-        Debug.Log("tile " + transform.position);
-        Debug.Log("hoverObject " + HoverObject.transform.position);
+        //Debug.Log("Hovering");
+        //Debug.Log("tile " + transform.position);
+        //Debug.Log("hoverObject " + HoverObject.transform.position);
         //sprite.color = highlightColor;
         HoverObject.SetActive(true);
     }

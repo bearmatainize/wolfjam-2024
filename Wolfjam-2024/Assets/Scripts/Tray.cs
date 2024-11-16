@@ -30,7 +30,7 @@ public class Tray : MonoBehaviour
                     var newGateComponent = Instantiate(gateComponentPrefab);
                     newGateComponent.transform.position = new Vector3(transform.position.x - 3.0f + i, transform.position.y, -1.0f);
                     newGateComponent.SetOriginalPosition();
-                    Debug.Log(newGateComponent.transform.position);
+                    //Debug.Log(newGateComponent.transform.position);
                     break;
             }
         }

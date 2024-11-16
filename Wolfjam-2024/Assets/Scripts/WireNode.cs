@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public enum WireNodeState { Disconnected, Off, On };
-public enum NodeType {In, Out};
+public enum NodeType { In, Out };
 
 public class WireNode : MonoBehaviour
 {
@@ -14,12 +14,19 @@ public class WireNode : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentState == WireNodeState.On)
+        {
+            internalState = true;
+        }
+        else
+        {
+            internalState = false;
+        }
     }
 }
