@@ -5,7 +5,7 @@ public class BugSpawner : MonoBehaviour
 {
     public GameObject bugPrefab;         // Reference to the bug prefab
     public float spawnInterval = 10f;     // Time interval between bug spawns
-    public float growthDuration = 10f;    // Duration for the bug to grow to normal size
+    public float growthDuration = 5f;    // Duration for the bug to grow to normal size
     private Vector3 screenBottomLeft;
     private Vector3 screenTopRight;
     private Vector3 screenCenter;
@@ -78,7 +78,7 @@ public class BugSpawner : MonoBehaviour
         float elapsedTime = 0f;
 
         // Gradually grow the bug to full size
-        while (elapsedTime < growthDuration)
+        while (elapsedTime < growthDuration && bug != null)
         {
             float growthFactor = Mathf.Lerp(0f, 1f, elapsedTime / growthDuration);
             bug.transform.localScale = new Vector3(5f * growthFactor, 5f * growthFactor, 1f);
@@ -87,7 +87,10 @@ public class BugSpawner : MonoBehaviour
             yield return null; // Wait for the next frame
         }
 
-        // Ensure the bug ends at full size
-        bug.transform.localScale = new Vector3(5f, 5f, 1f);
+        if(bug != null)
+        {
+            // Ensure the bug ends at full size
+            bug.transform.localScale = new Vector3(5f, 5f, 1f);
+        }
     }
 }
