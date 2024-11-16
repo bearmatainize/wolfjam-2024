@@ -96,7 +96,7 @@ public class Wire : MonoBehaviour
         }
 
         if (this.inputNode != null && this.outputNode != null){
-            this.outputNode.internalState = this.inputNode.internalState;
+            this.inputNode.internalState = this.outputNode.internalState;
         }
 
     }
