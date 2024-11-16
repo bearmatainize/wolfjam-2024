@@ -8,6 +8,8 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] Tile tilePrefab;
 
+    [SerializeField] Tray trayPrefab;
+
     [SerializeField] private Transform cam;
 
     private List<Tile> allTiles;
@@ -23,8 +25,7 @@ public class GridManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        allTiles = new List<Tile>();
-        GenerateGrid();
+
     }
 
     // Update is called once per frame
@@ -33,8 +34,9 @@ public class GridManager : MonoBehaviour
 
     }
 
-    void GenerateGrid()
+    public void GenerateGrid()
     {
+        allTiles = new List<Tile>();
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)

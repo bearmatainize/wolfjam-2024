@@ -25,7 +25,8 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
         currentState = ComponentState.Stashed;
         //Debug.Log(transform.position);
     }
