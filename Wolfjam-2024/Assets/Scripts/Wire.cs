@@ -9,9 +9,12 @@ public class Wire : MonoBehaviour
 
     private Controls controls;
     private InputAction point;
+    private Vector2 mousePos;
 
     [SerializeField] private LineRenderer lineRenderer;
     private GameManager gameManager;
+
+    private MeshCollider meshCollider;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -21,6 +24,7 @@ public class Wire : MonoBehaviour
 
         controls = new Controls();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        lineRenderer = gameObject.GetComponent<LineRenderer>();
     }
 
     private void Start()
@@ -46,14 +50,29 @@ public class Wire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        mousePos = gameManager.Cam.ScreenToWorldPoint(point.ReadValue<Vector2>());
+
         if (this.inputNode != null && this.outputNode != null)
         {
             this.outputNode.internalState = this.inputNode.internalState;
+            lineRenderer.SetPosition(0, inputNode.transform.position + (Vector3)inputNode.GetComponent<BoxCollider2D>().offset);
+            lineRenderer.SetPosition(1, outputNode.transform.position + (Vector3)outputNode.GetComponent<BoxCollider2D>().offset);
+
+            if (meshCollider == null)
+            {
+                Mesh lineBakedMesh = new Mesh(); //Create a new Mesh (Empty at the moment)
+                lineRenderer.BakeMesh(lineBakedMesh, true); //Bake the line mesh to our mesh variable
+                lineRenderer.GetComponent<MeshCollider>().sharedMesh = lineBakedMesh; //Set the baked mesh to the MeshCollider
+                lineRenderer.GetComponent<MeshCollider>().convex = true; //You need it convex if the mesh have any kind of holes
+                //lineRenderer.GetComponent<MeshCollider>().includeLayers = LayerMask.GetMask("Line");
+
+                //lineRenderer = null;
+            }
         }
 
         if (this.inputNode != null ^ this.outputNode != null)
         {
-            Vector2 mousePos = gameManager.Cam.ScreenToWorldPoint(point.ReadValue<Vector2>());
             lineRenderer.positionCount = 2;
             if (inputNode != null)
             {
@@ -65,6 +84,14 @@ public class Wire : MonoBehaviour
                 lineRenderer.SetPosition(0, mousePos);
                 lineRenderer.SetPosition(1, outputNode.transform.position + (Vector3)outputNode.GetComponent<BoxCollider2D>().offset);
             }
+
+            //Mesh lineBakedMesh = new Mesh(); //Create a new Mesh (Empty at the moment)
+            //lineRenderer.BakeMesh(lineBakedMesh, true); //Bake the line mesh to our mesh variable
+            //lineRenderer.GetComponent<MeshCollider>().sharedMesh = lineBakedMesh; //Set the baked mesh to the MeshCollider
+            //lineRenderer.GetComponent<MeshCollider>().convex = true; //You need it convex if the mesh have any kind of holes
+            //lineRenderer.GetComponent<MeshCollider>().includeLayers = LayerMask.GetMask("Line");
+
+            //lineRenderer = null;
 
         }
 
@@ -108,6 +135,23 @@ public class Wire : MonoBehaviour
             gameManager.currentWire = null;
 
             Destroy(this.gameObject);
+        }
+
+        else if (this.inputNode != null && this.outputNode != null)
+        {
+            if (Physics.Raycast(new Vector3(mousePos.x, mousePos.y, -30.0f), Vector3.forward, Mathf.Infinity))
+            {
+                this.inputNode.RemoveWire();
+                this.inputNode = null;
+
+                this.outputNode.RemoveWire();
+                this.outputNode = null;
+
+                gameManager.hasWire = false;
+                gameManager.currentWire = null;
+
+                Destroy(this.gameObject);
+            }
         }
     }
 }
