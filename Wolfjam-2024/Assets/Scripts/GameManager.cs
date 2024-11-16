@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private StartTile startTilePrefab;
     [SerializeField] private EndTile endTilePrefab;
 
+    public bool hasWire = false;
+
+    public Wire currentWire = null;
+
     public Camera Cam
     { get { return cam; } }
 
@@ -51,5 +55,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void SwapHasWire()
+    {
+        if (hasWire)
+        {
+            hasWire = false;
+        }
+        else
+        {
+            hasWire = true;
+        }
     }
 }
