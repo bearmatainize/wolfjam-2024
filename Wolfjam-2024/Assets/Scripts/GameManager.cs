@@ -1,5 +1,7 @@
 using UnityEngine;
 
+public enum GameLevel { Tutorial };
+
 public class GameManager : MonoBehaviour
 {
 

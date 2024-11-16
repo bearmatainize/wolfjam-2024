@@ -71,7 +71,6 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerDown(PointerEventData eventData)
     {
         //Debug.Log("Pointer Down");
-        originalPosition = transform.position;
         currentState = ComponentState.Grabbed;
     }
 
@@ -105,6 +104,7 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             currentState = ComponentState.Stashed;
             transform.position = originalPosition;
+            Debug.Log(transform.position);
 
         }
         else
@@ -114,5 +114,10 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             transform.position = new Vector3(transform.position.x, transform.position.y, -1.0f);
             closestTile.AttachComponent(this);
         }
+    }
+
+    public void SetOriginalPosition()
+    {
+        originalPosition = transform.position;
     }
 }
