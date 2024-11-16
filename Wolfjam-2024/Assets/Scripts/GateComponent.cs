@@ -14,6 +14,8 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GridManager gridManager;
 
+    public Tile currentTile;
+
     private Vector3 originalPosition;
 
     private Controls controls;
@@ -122,6 +124,11 @@ public class GateComponent : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             transform.position = closestTile.transform.position;
             transform.position = new Vector3(transform.position.x, transform.position.y, -1.0f);
             closestTile.AttachComponent(this, false);
+            if (currentTile != null)
+            {
+                currentTile.DetachComponent();
+            }
+            currentTile = closestTile;
         }
     }
 

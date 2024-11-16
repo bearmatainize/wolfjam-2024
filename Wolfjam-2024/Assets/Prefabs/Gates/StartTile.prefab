@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3254337374131227355}
   - component: {fileID: 4078708692458074631}
   - component: {fileID: 8436396192379884412}
+  - component: {fileID: 4421517657581175051}
   m_Layer: 0
   m_Name: StartTile
   m_TagString: Untagged
@@ -85,7 +86,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.009085715, y: -0.0030286312}
+  m_Offset: {x: -0.037857145, y: -0.0030286312}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -96,7 +97,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 0.86725724, y: 0.8412}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.07
+--- !u!114 &4421517657581175051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87715342322268940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc04f94f998a19744abe33bc9eff1e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  internalState: 0
+  io: 1
+  parentComponent: {fileID: 0}
 --- !u!1 &6987174028514254588
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +264,14 @@ PrefabInstance:
     - target: {fileID: 2921654156114792887, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
       propertyPath: m_MaskInteraction
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574385957714388186, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2807238
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574385957714388186, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.014638096
       objectReference: {fileID: 0}
     - target: {fileID: 4726796710644450499, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
       propertyPath: m_Name

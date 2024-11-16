@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1120783346956502853}
   - component: {fileID: 7191005309573208734}
+  - component: {fileID: 6481324681263951117}
   m_Layer: 0
   m_Name: StartOneTile
   m_TagString: Untagged
@@ -125,6 +126,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateComponent: {fileID: 1176412683632768632}
+--- !u!114 &6481324681263951117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050728334425951053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc04f94f998a19744abe33bc9eff1e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  internalState: 0
+  io: 1
+  parentComponent: {fileID: 0}
 --- !u!1001 &4977263301015603098
 PrefabInstance:
   m_ObjectHideFlags: 0
