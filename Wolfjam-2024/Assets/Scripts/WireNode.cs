@@ -19,6 +19,7 @@ public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currentState = WireNodeState.Disconnected;
         transform.localPosition = new Vector3(0f, 0f, -5.0f);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -38,37 +39,48 @@ public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (gameManager.hasWire)
+        if (currentState == WireNodeState.Disconnected || io == NodeType.Out)
         {
-            WireNode attached = (gameManager.currentWire.inputNode == null) ? gameManager.currentWire.outputNode : gameManager.currentWire.inputNode;
+            if (gameManager.hasWire)
+            {
+                WireNode attached = (gameManager.currentWire.inputNode == null) ? gameManager.currentWire.outputNode : gameManager.currentWire.inputNode;
 
-            if (attached.io != this.io)
-            {
-                if (attached.io == NodeType.In)
+                if (attached.io != this.io)
                 {
-                    gameManager.currentWire.outputNode = this;
+                    if (attached.io == NodeType.In)
+                    {
+                        gameManager.currentWire.outputNode = this;
+                    }
+                    else
+                    {
+                        gameManager.currentWire.inputNode = this;
+                    }
                 }
-                else
-                {
-                    gameManager.currentWire.inputNode = this;
-                }
-            }
-            gameManager.currentWire.RenderLine();
-            gameManager.hasWire = false;
-            gameManager.currentWire = null;
-        }
-        else
-        {
-            gameManager.currentWire = Instantiate(wirePrefab);
-            if (this.io == NodeType.In)
-            {
-                gameManager.currentWire.setNode(this);
+                gameManager.currentWire.RenderLine();
+                gameManager.hasWire = false;
+                gameManager.currentWire = null;
+
+                this.currentState = WireNodeState.Off;
             }
             else
             {
-                gameManager.currentWire.setNode(this);
+                gameManager.currentWire = Instantiate(wirePrefab);
+                if (this.io == NodeType.In)
+                {
+                    gameManager.currentWire.setNode(this);
+                }
+                else
+                {
+                    gameManager.currentWire.setNode(this);
+                }
+                gameManager.hasWire = true;
+
+                this.currentState = WireNodeState.Off;
             }
-            gameManager.hasWire = true;
+        }
+        else
+        {
+            // other stuff
         }
     }
 
@@ -80,5 +92,10 @@ public class WireNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
 
+    }
+
+    public void RemoveWire()
+    {
+        currentState = WireNodeState.Disconnected;
     }
 }
