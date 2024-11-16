@@ -11,11 +11,22 @@ public class HoverCursorGrab : MonoBehaviour, IPointerEnterHandler, IPointerExit
     [SerializeField] private GateComponent gateComponent;
 
     private bool isClicking = false;    // Tracks if the user is currently clicking/holding
+    public AudioClip[] clips; // Array of audio clips to play when the object is picked up or put down
+    private AudioSource audioSource;
     
     void Start()
     {
         // Save the current default cursor (Unity uses the system cursor by default)
         defaultCursor = null; // Set to null to indicate no custom cursor
+
+        // Get the AudioSource component attached to the GameObject
+        audioSource = GetComponent<AudioSource>();
+
+        // Ensure AudioSource is enabled
+        if (audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.enabled = true;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -43,6 +54,13 @@ public class HoverCursorGrab : MonoBehaviour, IPointerEnterHandler, IPointerExit
             // Change to click/hold cursor when the object is clicked
             isClicking = true;
             Cursor.SetCursor(grabbedCursor, hotspot, CursorMode.Auto);
+
+            // Check if there are clips in the array
+            if (clips.Length > 0)
+            {
+                // Play the clip at the current position of the GameObject
+                AudioSource.PlayClipAtPoint(clips[0], transform.position);
+            }
         }
     }
 
@@ -59,6 +77,13 @@ public class HoverCursorGrab : MonoBehaviour, IPointerEnterHandler, IPointerExit
         else
         {
             Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+        }
+
+        // Check if there are clips in the array
+        if (clips.Length > 0)
+        {
+            // Play the clip at the current position of the GameObject
+            AudioSource.PlayClipAtPoint(clips[1], transform.position);
         }
     }
 }
