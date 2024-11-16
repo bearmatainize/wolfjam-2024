@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8612203011563713379}
   - component: {fileID: 3951815787286054841}
   - component: {fileID: 624277705858571737}
-  - component: {fileID: 1829965047931015577}
-  - component: {fileID: 4515822028516287916}
+  - component: {fileID: 706410667643681055}
+  - component: {fileID: 5119152193956769434}
   m_Layer: 0
   m_Name: Bug
   m_TagString: Untagged
@@ -144,10 +144,12 @@ MonoBehaviour:
   speed: 0
   directionChangeInterval: 1
   turnSpeed: 2
+  centerBiasStrength: 0.5
+  approachDuration: 2
   squashedBugSprite: {fileID: -8983481550382736533, guid: b8b7b5e548f6c6f4f9bd548f75477a31, type: 3}
   fadeDuration: 1.5
   squashedBugPrefab: {fileID: 1108269692477787697, guid: 0b45476f69baca9439082f4ce7f2c57d, type: 3}
---- !u!95 &1829965047931015577
+--- !u!95 &706410667643681055
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -157,7 +159,7 @@ Animator:
   m_GameObject: {fileID: 6373394251127437206}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d727f651c5982014dae91fba700b43ab, type: 2}
+  m_Controller: {fileID: 9100000, guid: 72ecae19e75a24f47bfe8c61722a279d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -169,7 +171,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!111 &4515822028516287916
+--- !u!111 &5119152193956769434
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,4 +186,4 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_UpdateMode: 0
-  m_CullingType: 1
+  m_CullingType: 0
