@@ -139,9 +139,14 @@ public class WanderingBug : MonoBehaviour, IPointerDownHandler
         // Stop movement
         isSquashed = true;
 
+        // Get the current size of the bug
+        Vector3 currentScale = transform.localScale;
+
         // Instantiate the squashed bug prefab
         GameObject squashedBug = Instantiate(squashedBugPrefab, transform.position, Quaternion.identity);
-        squashedBug.transform.SetParent(transform.parent); // Set the same parent as the original bug
+
+        // Set the squashed bug to match the current scale of the original bug
+        squashedBug.transform.localScale = currentScale;
 
         // Destroy the original bug
         Destroy(gameObject, .1f);

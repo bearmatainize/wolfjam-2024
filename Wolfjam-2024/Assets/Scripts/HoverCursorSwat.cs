@@ -43,11 +43,10 @@ public class HoverCursorSwat : MonoBehaviour, IPointerEnterHandler, IPointerExit
         // Check if there are clips in the array
         if (clips.Length > 0)
         {
-            Debug.Log("Playing audio clip");
             // Choose a random clip from the array
             int randomIndex = Random.Range(0, clips.Length);
             audioSource.clip = clips[randomIndex];
-            
+
             // Play the clip at the current position of the GameObject
             AudioSource.PlayClipAtPoint(clips[randomIndex], transform.position);
         }
