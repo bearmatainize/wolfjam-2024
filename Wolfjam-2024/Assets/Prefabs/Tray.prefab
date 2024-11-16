@@ -100,4 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ef0e24fdb9af240af5d4d0df0fc679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateComponentPrefab: {fileID: 6143401924657836514, guid: 69d64a9f2c76cd74d94dd4e07f1e334e, type: 3}
+  gateComponents: []
+  notGatePrefab: {fileID: 33836031289503527, guid: 9e4dcb0d6da609d4ba8352633184f52f, type: 3}
+  orGatePrefab: {fileID: -8342446801346715201, guid: 123a00d3aa0fc5a489381553b23c9ba5, type: 3}
+  norGatePrefab: {fileID: 3278314771304694818, guid: ea121aa101217c24e90b85058b494468, type: 3}
+  andGatePrefab: {fileID: 4883116249877563621, guid: a35c9e11bd2f5b649a398727cc275fd5, type: 3}
+  nandGatePrefab: {fileID: 3477323910865939051, guid: fb42919c6ee625c4eb1dde27ecd30a07, type: 3}
+  xorGatePrefab: {fileID: 749330311611107672, guid: a7b1c4bd7dd1bb04da408105b3142adc, type: 3}
+  xnorGatePrefab: {fileID: 4769751279570323248, guid: 50f80bfb577c16a48bab9f8c45aa3cb9, type: 3}

@@ -4,9 +4,18 @@ using UnityEngine;
 public class Tray : MonoBehaviour
 {
 
-    [SerializeField] GateComponent gateComponentPrefab;
+    //[SerializeField] GateComponent gateComponentPrefab;
 
     [SerializeField] List<GateComponent> gateComponents;
+
+    [SerializeField] private NotGate notGatePrefab;
+    [SerializeField] private OrGate orGatePrefab;
+    [SerializeField] private NorGate norGatePrefab;
+    [SerializeField] private AndGate andGatePrefab;
+    [SerializeField] private NandGate nandGatePrefab;
+    [SerializeField] private XorGate xorGatePrefab;
+    [SerializeField] private XnorGate xnorGatePrefab;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,9 +36,9 @@ public class Tray : MonoBehaviour
             switch (types[i])
             {
                 case "or":
-                    var newGateComponent = Instantiate(gateComponentPrefab);
+                    var newGateComponent = Instantiate(orGatePrefab);
                     newGateComponent.transform.position = new Vector3(transform.position.x - 3.0f + i, transform.position.y, -1.0f);
-                    newGateComponent.SetOriginalPosition();
+                    newGateComponent.GetComponentsInChildren<GateComponent>()[0].SetOriginalPosition();
                     break;
             }
         }
