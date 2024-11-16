@@ -9,7 +9,7 @@ public class WanderingBug : MonoBehaviour, IPointerDownHandler
     public float speed; // Current speed
     public float directionChangeInterval = 1f; // Time in seconds to change direction
     public float turnSpeed = 2f;      // How quickly the bug turns
-    public float centerBiasStrength = 0.5f; // Strength of bias towards the center (0 = no bias, 1 = full bias)
+    public float centerBiasStrength = 0.7f; // Strength of bias towards the center (0 = no bias, 1 = full bias)
     private float approachTimer;
     public float approachDuration = 2f; // Time in seconds to move toward the center
 
@@ -139,12 +139,17 @@ public class WanderingBug : MonoBehaviour, IPointerDownHandler
         // Stop movement
         isSquashed = true;
 
+        // Get the current size of the bug
+        Vector3 currentScale = transform.localScale;
+
         // Instantiate the squashed bug prefab
         GameObject squashedBug = Instantiate(squashedBugPrefab, transform.position, Quaternion.identity);
-        squashedBug.transform.SetParent(transform.parent); // Set the same parent as the original bug
+
+        // Set the squashed bug to match the current scale of the original bug
+        squashedBug.transform.localScale = currentScale;
 
         // Destroy the original bug
-        Destroy(gameObject);
+        Destroy(gameObject, .1f);
     }
 
     void StayInBounds()

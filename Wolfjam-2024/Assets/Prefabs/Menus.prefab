@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 7317360499171501419}
   - component: {fileID: 1925995651839250329}
   - component: {fileID: 5493691112191351524}
+  - component: {fileID: 4175913443519037998}
   m_Layer: 0
   m_Name: Quit
   m_TagString: Untagged
@@ -243,6 +244,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!114 &4175913443519037998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6695652014993296805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71714398d6505747bb955bd7975b870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickCursor: {fileID: 2800000, guid: 87d2bff6b8b1f6d45a8f25fdaf4163f8, type: 3}
+  hotspot: {x: 0, y: 0}
 --- !u!1 &6786801377553509179
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +427,7 @@ GameObject:
   - component: {fileID: 2717604181986583053}
   - component: {fileID: 1307735632149962365}
   - component: {fileID: 7330184696272074708}
+  - component: {fileID: 2486443480134967924}
   m_Layer: 0
   m_Name: Resume
   m_TagString: Untagged
@@ -532,6 +548,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!114 &2486443480134967924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341437971909035460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71714398d6505747bb955bd7975b870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickCursor: {fileID: 2800000, guid: 87d2bff6b8b1f6d45a8f25fdaf4163f8, type: 3}
+  hotspot: {x: 0, y: 0}
 --- !u!1 &9155154406252488123
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +574,7 @@ GameObject:
   - component: {fileID: 6035923376203082346}
   - component: {fileID: 6441780587118587380}
   - component: {fileID: 3204356139351514097}
+  - component: {fileID: 3575349608309947950}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -664,3 +695,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!114 &3575349608309947950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9155154406252488123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71714398d6505747bb955bd7975b870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickCursor: {fileID: 2800000, guid: 87d2bff6b8b1f6d45a8f25fdaf4163f8, type: 3}
+  hotspot: {x: 0, y: 0}
