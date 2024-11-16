@@ -311,7 +311,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Point"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""83cc5fb3-b786-4226-9054-47aaf9dc75a5"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
