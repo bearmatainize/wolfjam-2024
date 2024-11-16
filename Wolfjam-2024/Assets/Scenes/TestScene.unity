@@ -322,6 +322,7 @@ MonoBehaviour:
   width: 12
   height: 7
   tilePrefab: {fileID: 7226318678936104108, guid: 5b68cc1aba75c6c4491057a1875c70b7, type: 3}
+  trayPrefab: {fileID: 0}
   cam: {fileID: 519420032}
 --- !u!4 &1089550008
 Transform:
@@ -383,6 +384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
+  gridManager: {fileID: 0}
+  trayPrefab: {fileID: 0}
 --- !u!1001 &1589262857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -499,6 +502,10 @@ PrefabInstance:
     - target: {fileID: 6760976177966411135, guid: 5b68cc1aba75c6c4491057a1875c70b7, type: 3}
       propertyPath: m_Name
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760976177966411135, guid: 5b68cc1aba75c6c4491057a1875c70b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
