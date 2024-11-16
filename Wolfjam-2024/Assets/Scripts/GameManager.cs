@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Tray trayPrefab;
 
+    //[SerializeField] private StartZeroTile startZeroTilePrefab;
+
     public Camera Cam { get { return cam; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     {
         gridManager.GenerateGrid();
 
+        // Set Up first level
         var newTray = Instantiate(trayPrefab);
         newTray.transform.position = new Vector3(cam.transform.position.x - 2.0f, cam.transform.position.y - 4.5f, 0.0f);
         string[] gates = new string[] { "or", "or", "or" };

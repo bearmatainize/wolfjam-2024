@@ -87,8 +87,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7705077428566772826}
+  - component: {fileID: 3377925909290432599}
   m_Layer: 0
-  m_Name: 0Tile
+  m_Name: StartZeroTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,6 +112,18 @@ Transform:
   - {fileID: 8153414873465484390}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3377925909290432599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730437042080427007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f50cb1b9b86c084c829b2e5ab9cd756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9055635554442164121
 PrefabInstance:
   m_ObjectHideFlags: 0
