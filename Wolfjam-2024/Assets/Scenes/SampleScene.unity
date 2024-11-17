@@ -342,6 +342,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: TruthTable
       objectReference: {fileID: 0}
+    - target: {fileID: 3010270624554898156, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1411817780}
+    - target: {fileID: 3010270624554898156, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TestAndPause
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010270624554898156, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010270624554898156, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3137371569963264637, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -406,6 +422,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 5204161386324536736, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1411817780}
     - target: {fileID: 6413043196958909943, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
       propertyPath: m_SizeDelta.x
       value: 306.45
@@ -923,6 +943,7 @@ MonoBehaviour:
   endTilePrefab: {fileID: -7974617442394243433, guid: 62ce863929adc354b8f117f5fc4415fb, type: 3}
   hasWire: 0
   currentWire: {fileID: 0}
+  resultsList: 
 --- !u!1 &2093159132
 GameObject:
   m_ObjectHideFlags: 0

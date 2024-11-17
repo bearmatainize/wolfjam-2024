@@ -60,4 +60,18 @@ public class StartTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             sprite.sprite = ZeroImage;
         }
     }
+
+    public void Set(bool on)
+    {
+        if (on)
+        {
+            output1.currentState = WireNodeState.On;
+            sprite.sprite = OneImage;
+        }
+        else
+        {
+            output1.currentState = WireNodeState.Off;
+            sprite.sprite = ZeroImage;
+        }
+    }
 }
