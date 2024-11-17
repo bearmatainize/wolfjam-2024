@@ -343,8 +343,20 @@ PrefabInstance:
       value: TruthTable
       objectReference: {fileID: 0}
     - target: {fileID: 3137371569963264637, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137371569963264637, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137371569963264637, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137371569963264637, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 3725730297612192035, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
       propertyPath: m_fontSize
