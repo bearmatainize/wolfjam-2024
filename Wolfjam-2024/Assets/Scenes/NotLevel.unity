@@ -467,6 +467,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 47.999996
       objectReference: {fileID: 0}
+    - target: {fileID: 4282974199920548973, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1411817780}
+    - target: {fileID: 4282974199920548973, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 5164772365204329167, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
       propertyPath: m_text
       value: "      In\t         Out"
@@ -478,6 +486,10 @@ PrefabInstance:
     - target: {fileID: 5164772365204329167, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
       propertyPath: m_fontSizeBase
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204161386324536736, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: goalsIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5204161386324536736, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
       propertyPath: gameManager
@@ -497,7 +509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6413043196958909943, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 408.53
+      value: 10408.53
       objectReference: {fileID: 0}
     - target: {fileID: 7984977785143508283, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
       propertyPath: m_Pivot.x

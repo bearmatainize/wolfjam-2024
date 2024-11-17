@@ -1,7 +1,7 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System.Collections.Generic;
 
 public class TruthTableManager : MonoBehaviour
 {
@@ -12,17 +12,22 @@ public class TruthTableManager : MonoBehaviour
     public RectTransform testRectTransform;
     public RectTransform nextRectTransform;
 
+    [SerializeField] private int goalsIndex;
+
     private string[] goals = new string[] {
         "0\n1\n1\n1\n", //Or
         "0\n0\n0\n1\n", //And
-        "1\n1\n1\n0\n",
-        "1\n0\n0\n1\n",
-        "1\n0\n0\n0\n"
+        "1\n1\n0\n0\n", //Not
+        "1\n1\n1\n0\n", //Nand from Not and And
+        "1\n1\n1\n0\n", //Pure Nand
+        "1\n0\n0\n0\n",//Nor
+        "1\n0\n0\n0\n"//Nor from Nand
     };
 
-    private void Start()
+    void Awake()
     {
-        goal.text = goals[0];
+        Debug.Log("Running!");
+        goal.text = goals[goalsIndex];
         yours.text = "0\n0\n0\n0\n";
         test.interactable = true;
         next.interactable = false;
@@ -37,6 +42,7 @@ public class TruthTableManager : MonoBehaviour
         Vector3 testNewPosition = testRectTransform.localPosition;
         testNewPosition.y = testNewPosition.y - 10000f;
         testRectTransform.localPosition = testNewPosition;
+        Debug.Log("Ran!");
     }
 
     public void Check()
@@ -54,7 +60,7 @@ public class TruthTableManager : MonoBehaviour
             Vector3 nextNewPosition = nextRectTransform.localPosition;
             nextNewPosition.y = nextNewPosition.y - 10000f;
             nextRectTransform.localPosition = nextNewPosition;
-            
+
         }
         else
         {

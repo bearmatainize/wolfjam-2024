@@ -5,17 +5,38 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: fcf8b9f0fb8367349abb9b99b020b4aa
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 1193c1abc40b33744b7c9ad6915f353b
   - enabled: 0
     path: Assets/Scenes/Credits.unity
     guid: 343e3993d77aba6488aee10b4fa9ed98
+  - enabled: 1
+    path: Assets/Scenes/AndLevel.unity
+    guid: 1ad8eca6e9296c54eaab1533fcafe9da
+  - enabled: 1
+    path: Assets/Scenes/NandLevel.unity
+    guid: 7baa9da7680cf7e4e828f464c76408c4
+  - enabled: 1
+    path: Assets/Scenes/NorFromNandLevel.unity
+    guid: 419631dbad5bfc14198c214ed204a215
+  - enabled: 1
+    path: Assets/Scenes/NorLevel.unity
+    guid: bf9df24e9331d774893cb599dccd09e5
+  - enabled: 1
+    path: Assets/Scenes/NotLevel.unity
+    guid: a72a545121bdb824984f0ae8a059c4cc
+  - enabled: 1
+    path: Assets/Scenes/OrLevel.unity
+    guid: eb97add0dadbf8a42b6259f0bde4dca6
+  - enabled: 1
+    path: Assets/Scenes/PureNandLevel.unity
+    guid: 1169902bd225b6c46b313530a34e53fd
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

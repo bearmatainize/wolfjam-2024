@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
 
 public class Menu : MonoBehaviour
 {
@@ -40,7 +39,7 @@ public class Menu : MonoBehaviour
 
     public void Pause()
     {
-        if(!PauseMenu.activeInHierarchy)
+        if (!PauseMenu.activeInHierarchy)
         {
             PauseMenu.SetActive(true);
 
@@ -55,7 +54,7 @@ public class Menu : MonoBehaviour
     public void Play()
     {
         // Load First Level
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("OrLevel");
     }
 
     public void Credits()

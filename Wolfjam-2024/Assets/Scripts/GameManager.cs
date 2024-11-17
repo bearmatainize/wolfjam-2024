@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameLevel { Tutorial };
 
@@ -119,7 +120,7 @@ public class GameManager : MonoBehaviour
                 startTiles[0].Set(i == 0 ? false : true);
                 startTiles[1].Set(j == 0 ? false : true);
 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.1f);
 
                 if (endTile.input1.currentState == WireNodeState.On)
                 {
@@ -132,11 +133,43 @@ public class GameManager : MonoBehaviour
 
                 resultsIndex++;
 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(0.5f);
 
             }
         }
 
         truthTableManager.ChangeYours(resultsList);
+        truthTableManager.Check();
+    }
+
+    public void NextLevel()
+    {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "OrLevel":
+                SceneManager.LoadScene("AndLevel");
+                break;
+            case "AndLevel":
+                SceneManager.LoadScene("NotLevel");
+                break;
+            case "NotLevel":
+                SceneManager.LoadScene("NandLevel");
+                break;
+            case "NandLevel":
+                SceneManager.LoadScene("PureNandLevel");
+                break;
+            case "PureNandLevel":
+                SceneManager.LoadScene("NorLevel");
+                break;
+            case "NorLevel":
+                SceneManager.LoadScene("NorFromNandLevel");
+                break;
+            case "NorFromNandLevel":
+                SceneManager.LoadScene("Credits");
+                break;
+            default:
+                SceneManager.LoadScene("Credits");
+                break;
+        }
     }
 }
