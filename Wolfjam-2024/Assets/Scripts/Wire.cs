@@ -112,6 +112,10 @@ public class Wire : MonoBehaviour
             this.lineRenderer.startColor = Color.red;
             this.lineRenderer.endColor = Color.red;
         }
+        
+        if (this.inputNode != null && this.outputNode != null){
+            this.inputNode.currentState = this.outputNode.currentState;
+        }
 
     }
 

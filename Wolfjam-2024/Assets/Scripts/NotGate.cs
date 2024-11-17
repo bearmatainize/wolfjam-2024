@@ -18,6 +18,12 @@ public class NotGate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.output1.internalState = !this.input1.internalState;
+        if (this.output1.currentState != WireNodeState.Disconnected){
+            if (!this.input1.internalState){
+                this.output1.currentState = WireNodeState.On;
+            } else {
+                this.output1.currentState = WireNodeState.Off;
+            }
+        } 
     }
 }
