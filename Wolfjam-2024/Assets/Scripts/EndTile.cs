@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EndTile : MonoBehaviour
 {
-    private WireNode input1;
+    public WireNode input1;
 
     [SerializeField] public Sprite OneImage;
     [SerializeField] public Sprite ZeroImage;
