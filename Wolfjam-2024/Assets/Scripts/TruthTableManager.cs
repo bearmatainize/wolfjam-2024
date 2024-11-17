@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class TruthTableManager : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class TruthTableManager : MonoBehaviour
     {
         goal.text = goals[0];
         yours.text = "1\n1\n1\n1\n";
-
     }
 
     public void Check()
@@ -35,10 +35,10 @@ public class TruthTableManager : MonoBehaviour
         goal.text = goals[index];
     }
 
-    public void ChangeYours(int[] values)
+    public void ChangeYours(List<int> values)
     {
         yours.text = "";
-        for (int i = 0; i < values.Length; i++)
+        for (int i = 0; i < values.Count; i++)
         {
             yours.text += values[i] + "\n";
         }
