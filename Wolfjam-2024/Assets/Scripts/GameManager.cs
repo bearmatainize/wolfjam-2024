@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera cam;
 
     [SerializeField] private GridManager gridManager;
+    private TruthTableManager truthTableManager;
 
     [SerializeField] private Tray trayPrefab;
 
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        truthTableManager = GameObject.Find("TruthTable").GetComponent<TruthTableManager>();
+
         gridManager.GenerateGrid();
 
         // Set Up first level
@@ -86,6 +89,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Test()
     {
+        int resultsIndex = 0;
+        resultsList.Clear();
         for (int i = 0; i < startTiles.Count; i++)
         {
             for (int j = 0; j < startTiles.Count; j++)
@@ -93,18 +98,24 @@ public class GameManager : MonoBehaviour
                 startTiles[0].Set(i == 0 ? false : true);
                 startTiles[1].Set(j == 0 ? false : true);
 
+                yield return new WaitForSeconds(1f);
+
                 if (endTile.input1.currentState == WireNodeState.On)
                 {
-                    resultsList[(i * 2) + j] = 1;
+                    resultsList.Add(1);
                 }
                 else
                 {
-                    resultsList[(i * 2) + j] = 0;
+                    resultsList.Add(0);
                 }
+
+                resultsIndex++;
 
                 yield return new WaitForSeconds(2f);
 
             }
         }
+
+        truthTableManager.ChangeYours(resultsList);
     }
 }
