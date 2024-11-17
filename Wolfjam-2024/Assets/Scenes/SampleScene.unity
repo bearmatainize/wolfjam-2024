@@ -518,6 +518,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8179661578221307756, guid: 15066523b38f7144fa6e294f18376b38, type: 3}
+    - target: {fileID: 5496181704303812417, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6413043196958909943, guid: dab1f5ff30a5efb488cd7add225afe49, type: 3}
       propertyPath: m_SizeDelta.x
       value: 306.45
